@@ -30,7 +30,7 @@ export default function Hero() {
         </a>
 
         <a
-          href="https://wa.link/q4ygp2"
+          href="https://wa.link/moe2nn"
           target="_blank"
           rel="noopener noreferrer"
           className={primaryBtnClass}
