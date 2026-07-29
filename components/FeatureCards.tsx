@@ -5,18 +5,18 @@ const cards = [
     desc: "DATA TERLINDUNGI",
   },
   {
-    title: "Layanan",
+    title: "LAYANAN",
     value: "24/7",
-    desc: "Selalu siap membantu",
+    desc: "SELALU SIAP MEMBANTU",
   },
   {
     title: "BONUS CASHACK SPORT",
-    value: "5%",
+    value: "10%",
     desc: "BONUS MINGGUAN",
   },
   {
-    title: "BONUS TURNOVER",
-    value: "1%",
+    title: "BONUS TURNOVER LIVE CASINO & CASINO GAMES",
+    value: "0.7%",
     desc: "ROLLINGAN MINGGUAN",
   },
   {
