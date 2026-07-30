@@ -1,24 +1,152 @@
 @import "tailwindcss";
 
+/* ==========================================
+   Root
+========================================== */
+
 :root {
-  --background: #070b17;
-  --foreground: #ffffff;
+  --gold: #ffd700;
+  --gold-dark: #b8860b;
+
+  --bg: #050505;
+  --card: rgba(15, 15, 15, 0.92);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ==========================================
+   Reset
+========================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ==========================================
+   Base
+========================================== */
+
+html {
+  scroll-behavior: smooth;
 }
 
 html,
 body {
-  margin: 0;
-  padding: 0;
   min-height: 100%;
+  overflow-x: hidden;
 
-  background: var(--background);
-  color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  color: #fff;
+
+  background:
+    radial-gradient(circle at top, #241400 0%, #090909 35%, #000000 100%);
+
+  background-attachment: fixed;
+}
+
+/* ==========================================
+   Scrollbar
+========================================== */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #090909;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  background: linear-gradient(
+    180deg,
+    var(--gold),
+    var(--gold-dark)
+  );
+}
+
+/* ==========================================
+   Selection
+========================================== */
+
+::selection {
+  background: var(--gold);
+  color: #000;
+}
+
+/* ==========================================
+   Stars Animation
+========================================== */
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+
+  border-radius: 9999px;
+
+  background: #ffd54a;
+
+  box-shadow:
+    0 0 5px #ffd54a,
+    0 0 10px #ffbf00,
+    0 0 20px rgba(255, 215, 0, 0.5);
+
+  animation: twinkle infinite ease-in-out;
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: .2;
+    transform: scale(.7);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.6);
+  }
+
+  100% {
+    opacity: .2;
+    transform: scale(.7);
+  }
+}
+
+/* ==========================================
+   Floating Glow
+========================================== */
+
+.gold-glow {
+  position: absolute;
+
+  width: 450px;
+  height: 450px;
+
+  border-radius: 9999px;
+
+  background: radial-gradient(
+    circle,
+    rgba(255, 215, 0, 0.12) 0%,
+    transparent 70%
+  );
+
+  filter: blur(80px);
+
+  animation: glowMove 10s ease-in-out infinite;
+}
+
+@keyframes glowMove {
+  0% {
+    transform: translate(-30px, -20px);
+  }
+
+  50% {
+    transform: translate(20px, 20px);
+  }
+
+  100% {
+    transform: translate(-30px, -20px);
+  }
 }

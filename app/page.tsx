@@ -1,11 +1,11 @@
-import Hero from "@/components/Hero";
-import Slider from "@/components/Slider";
-import FeatureCards from "@/components/FeatureCards";
+import Navbar from "@/components/layout/Navbar";
+import Slider from "@/components/home/Slider";
+import FeatureCards from "@/components/home/FeatureCards";
 
 export default function Home() {
   return (
     <>
-      <Hero />
+      <Navbar />
       <Slider />
       <FeatureCards />
     </>
