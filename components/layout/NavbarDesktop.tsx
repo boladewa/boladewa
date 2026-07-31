@@ -13,22 +13,24 @@ const menus = [
 
 export default function NavbarDesktop() {
   return (
-    <header className="sticky top-0 z-50 bg-black shadow-2xl">
-      {/* ================= HEADER ================= */}
+    <header className="sticky top-0 z-50 bg-black shadow-xl">
+
+      {/* HEADER */}
       <div className="border-b border-yellow-500/20">
-        <div className="mx-auto flex h-[145px] max-w-[1850px] items-center justify-between px-12">
-          {/* Logo */}
-          <Link href="/" className="flex items-center pt-6">
+        <div className="mx-auto flex h-[120px] w-full max-w-[1320px] items-center justify-between px-6">
+
+          {/* LOGO */}
+          <Link href="/" className="flex items-center">
             <Image
               src="/logo-navbar.png"
               alt="Boladewa"
-              width={340}
-              height={100}
+              width={300}
+              height={90}
               priority
               className="
                 h-auto
                 w-auto
-                drop-shadow-[0_0_12px_rgba(255,210,0,.45)]
+                drop-shadow-[0_0_15px_rgba(255,210,0,.35)]
                 transition-all
                 duration-300
                 hover:scale-105
@@ -36,16 +38,18 @@ export default function NavbarDesktop() {
             />
           </Link>
 
-          {/* Buttons */}
-          <div className="flex items-center gap-6">
+
+          {/* BUTTON */}
+          <div className="flex items-center gap-4">
+
             <a
               href="https://www.amanpastianyam.com"
               target="_blank"
               rel="noopener noreferrer"
               className="
                 flex
-                h-[58px]
-                min-w-[170px]
+                h-12
+                min-w-[150px]
                 items-center
                 justify-center
                 rounded-xl
@@ -53,27 +57,28 @@ export default function NavbarDesktop() {
                 border-yellow-500
                 bg-black
                 px-8
-                text-[18px]
-                font-extrabold
+                text-base
+                font-bold
                 uppercase
-                tracking-wide
                 text-yellow-400
                 transition-all
                 duration-300
                 hover:bg-yellow-500
                 hover:text-black
-                hover:shadow-[0_0_18px_rgba(255,210,0,.45)]
+                hover:shadow-lg
+                hover:shadow-yellow-500/40
               "
             >
               LOGIN
             </a>
 
+
             <Link
               href="/register"
               className="
                 flex
-                h-[58px]
-                min-w-[190px]
+                h-12
+                min-w-[170px]
                 items-center
                 justify-center
                 rounded-xl
@@ -82,30 +87,37 @@ export default function NavbarDesktop() {
                 via-yellow-300
                 to-amber-500
                 px-8
-                text-[18px]
-                font-black
+                text-base
+                font-extrabold
                 uppercase
-                tracking-wide
                 text-black
-                shadow-[0_0_18px_rgba(255,210,0,.35)]
+                shadow-lg
+                shadow-yellow-500/20
                 transition-all
                 duration-300
                 hover:scale-105
-                hover:shadow-[0_0_24px_rgba(255,210,0,.55)]
+                hover:shadow-yellow-500/50
               "
             >
               DAFTAR
             </Link>
+
           </div>
+
         </div>
       </div>
 
-      {/* ================= MENU ================= */}
-      <div className="border-b border-yellow-500/20 bg-[#141414]">
-        <nav className="mx-auto max-w-[1850px]">
-          <ul className="flex h-[62px] items-center justify-center gap-14">
+
+      {/* MENU */}
+      <div className="border-b border-yellow-500/20 bg-[#151515]">
+
+        <nav className="mx-auto flex h-16 w-full max-w-[1320px] items-center justify-center px-6">
+
+          <ul className="flex items-center gap-14 translate-x-12">
+
             {menus.map((menu) => (
-              <li key={menu.name}>
+              <li key={menu.name} className="shrink-0">
+
                 {menu.external ? (
                   <a
                     href={menu.href}
@@ -113,22 +125,25 @@ export default function NavbarDesktop() {
                     rel="noopener noreferrer"
                     className="
                       relative
-                      text-[17px]
-                      font-extrabold
+                      block
+                      text-[15px]
+                      font-bold
                       uppercase
                       tracking-wide
                       text-white
                       transition-all
                       duration-300
                       hover:text-yellow-400
+
                       after:absolute
                       after:left-0
-                      after:-bottom-[20px]
+                      after:-bottom-[21px]
                       after:h-[2px]
                       after:w-0
                       after:bg-yellow-400
                       after:transition-all
                       after:duration-300
+
                       hover:after:w-full
                     "
                   >
@@ -139,14 +154,16 @@ export default function NavbarDesktop() {
                     href={menu.href}
                     className="
                       relative
-                      text-[17px]
+                      block
+                      text-[15px]
                       font-black
                       uppercase
                       tracking-wide
                       text-yellow-400
+
                       after:absolute
                       after:left-0
-                      after:-bottom-[20px]
+                      after:-bottom-[21px]
                       after:h-[2px]
                       after:w-full
                       after:bg-yellow-400
@@ -155,11 +172,16 @@ export default function NavbarDesktop() {
                     {menu.name}
                   </Link>
                 )}
+
               </li>
             ))}
+
           </ul>
+
         </nav>
+
       </div>
+
     </header>
   );
 }

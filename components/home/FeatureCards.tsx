@@ -1,30 +1,36 @@
 const cards = [
   {
+    icon: "🛡️",
     title: "KEAMANAN",
     value: "100%",
     desc: "DATA TERLINDUNGI",
   },
   {
+    icon: "🎧",
     title: "LAYANAN",
     value: "24/7",
     desc: "SELALU SIAP MEMBANTU",
   },
   {
-    title: "BONUS CASHBACK SPORT",
+    icon: "💰",
+    title: "CASHBACK SPORT",
     value: "10%",
     desc: "BONUS MINGGUAN",
   },
   {
-    title: "BONUS TURNOVER LIVE CASINO & CASINO GAMES",
+    icon: "🎰",
+    title: "TURNOVER",
     value: "0.7%",
     desc: "ROLLINGAN MINGGUAN",
   },
   {
-    title: "DUKUNGAN",
+    icon: "👨‍💻",
+    title: "SUPPORT",
     value: "AKTIF",
-    desc: "TIM SUPPORT",
+    desc: "ONLINE SETIAP HARI",
   },
   {
+    icon: "📢",
     title: "INFORMASI",
     value: "UPDATE",
     desc: "SELALU TERBARU",
@@ -33,52 +39,65 @@ const cards = [
 
 export default function FeatureCards() {
   return (
-    <section className="mt-2 w-full px-2 md:mt-4">
+    <section className="mt-4 mb-10">
 
-      <div className="grid w-full grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-6">
+      <div className="mx-auto w-full max-w-[1100px]">
 
-        {cards.map((card, index) => (
-          <div
-            key={index}
-            className="
-              flex
-              min-h-[120px]
-              flex-col
-              justify-center
-              rounded-xl
-              border
-              border-yellow-500/30
-              bg-[#111827]
-              px-3
-              py-4
-              text-center
-              transition-all
-              duration-300
-              hover:-translate-y-1
-              hover:border-yellow-400
-              hover:shadow-lg
-              hover:shadow-yellow-500/20
+        <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-6">
 
-              md:min-h-[150px]
-              md:rounded-2xl
-              md:px-5
-              md:py-6
-            "
-          >
-            <p className="text-[10px] uppercase leading-tight tracking-wide text-gray-400 md:text-xs">
-              {card.title}
-            </p>
+          {cards.map((card, index) => (
+            <div
+              key={index}
+              className="
+                group
+                flex
+                h-[120px]
+                flex-col
+                items-center
+                justify-center
 
-            <h2 className="mt-2 text-3xl font-bold text-yellow-400 md:text-4xl">
-              {card.value}
-            </h2>
+                rounded-2xl
 
-            <p className="mt-2 text-[11px] leading-tight text-gray-300 md:text-sm">
-              {card.desc}
-            </p>
+                border
+                border-yellow-500/20
 
-          </div>
-        ))}
+                bg-gradient-to-b
+                from-[#1B2332]
+                via-[#141B28]
+                to-[#101623]
+
+                transition-all
+                duration-300
+
+                hover:-translate-y-1
+                hover:border-yellow-400
+                hover:shadow-xl
+                hover:shadow-yellow-500/20
+              "
+            >
+              {/* Icon */}
+              <div className="text-xl transition-transform duration-300 group-hover:scale-110">
+                {card.icon}
+              </div>
+
+              {/* Title */}
+              <p className="mt-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-gray-400">
+                {card.title}
+              </p>
+
+              {/* Value */}
+              <h2 className="mt-1 text-3xl font-black leading-none text-yellow-400">
+                {card.value}
+              </h2>
+
+              {/* Description */}
+              <p className="mt-1 text-center text-[10px] text-gray-300">
+                {card.desc}
+              </p>
+            </div>
+          ))}
+
+        </div>
 
       </div>
 
