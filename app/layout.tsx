@@ -15,6 +15,23 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "SELAMAT DATANG DI BOLADEWA88",
   description: "WEBSITE RESMI AGENT BOLADEWA88",
+  // Tambahkan openGraph agar preview WhatsApp & Medsos muncul sempurna
+  openGraph: {
+    title: "SELAMAT DATANG DI BOLADEWA88",
+    description: "WEBSITE RESMI AGENT BOLADEWA88",
+    url: "https://boladewa.vercel.app/",
+    siteName: "BOLADEWA88",
+    images: [
+      {
+        url: "https://boladewa.vercel.app/icon.png", // Menggunakan icon.png di folder app kamu
+        width: 800,
+        height: 600,
+        alt: "BOLADEWA88 Logo",
+      },
+    ],
+    locale: "id_ID",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -28,9 +45,7 @@ export default function RootLayout({
       data-scroll-behavior="smooth"
       className={`${geistSans.variable} ${geistMono.variable}`}
     >
-      <body className="antialiased">
-        {children}
-      </body>
+      <body className="antialiased">{children}</body>
     </html>
   );
 }
