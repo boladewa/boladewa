@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "BOLADEWA",
-  description: "Website Resmi BOLADEWA",
+  title: "SELAMAT DATANG DI BOLADEWA88",
+  description: "WEBSITE RESMI AGENT BOLADEWA88",
 };
 
 export default function RootLayout({
