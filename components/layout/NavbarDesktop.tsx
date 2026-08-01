@@ -3,14 +3,20 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const menus = [
+interface MenuItem {
+  name: string;
+  href: string;
+  external: boolean;
+}
+
+const menus: MenuItem[] = [
   { name: "BERANDA", href: "/", external: false },
-  { name: "SPORTS", href: "https://www.amanpastianyam.com", external: true },
-  { name: "VIRTUAL SPORTS", href: "https://www.amanpastianyam.com", external: true },
-  { name: "LIVE CASINO", href: "https://www.amanpastianyam.com", external: true },
-  { name: "SLOT", href: "https://www.amanpastianyam.com", external: true },
-  { name: "TEMBAK IKAN", href: "https://www.amanpastianyam.com", external: true },
-  { name: "SABUNG AYAM", href: "https://www.amanpastianyam.com", external: true },
+  { name: "SPORTS", href: "https://www.terushebatunggul.com/en/euro", external: true },
+  { name: "VIRTUAL SPORTS", href: "https://www.terushebatunggul.com/virtualsports", external: true },
+  { name: "LIVE CASINO", href: "https://www.terushebatunggul.com/livecasino", external: true },
+  { name: "SLOT", href: "https://www.terushebatunggul.com/games", external: true },
+  { name: "TEMBAK IKAN", href: "https://www.terushebatunggul.com", external: true },
+  { name: "SABUNG AYAM", href: "https://www.terushebatunggul.com", external: true },
 ];
 
 export default function NavbarDesktop() {
@@ -19,7 +25,13 @@ export default function NavbarDesktop() {
       {/* 1. TOP BAR */}
       <div className="w-full border-b border-yellow-500/20">
         <div className="flex h-[100px] w-full items-center justify-between px-6 lg:px-12">
-          <Link href="/" className="flex items-center">
+          {/* Logo diarahkan ke link eksternal */}
+          <a
+            href="https://www.terushebatunggul.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative z-10 flex items-center cursor-pointer"
+          >
             <Image
               src="/logo-navbar.png"
               alt="Boladewa"
@@ -28,11 +40,11 @@ export default function NavbarDesktop() {
               priority
               className="h-auto w-auto drop-shadow-[0_0_15px_rgba(255,210,0,.35)] transition-all duration-300 hover:scale-105"
             />
-          </Link>
+          </a>
 
           <div className="flex items-center gap-4">
             <a
-              href="https://www.amanpastianyam.com"
+              href="https://www.terushebatunggul.com"
               target="_blank"
               rel="noopener noreferrer"
               className="flex h-11 min-w-[130px] items-center justify-center rounded-xl border border-yellow-500 bg-black px-6 text-sm font-bold uppercase text-yellow-400 transition-all duration-300 hover:bg-yellow-500 hover:text-black hover:shadow-lg hover:shadow-yellow-500/40"
@@ -50,7 +62,7 @@ export default function NavbarDesktop() {
         </div>
       </div>
 
-      {/* 2. MENU BAR (Ukuran Font Diperbesar ke text-sm & lg:text-base) */}
+      {/* 2. MENU BAR */}
       <div className="flex w-full justify-center border-b border-yellow-500/20 bg-[#151515]">
         <div className="w-full max-w-[1080px]">
           <nav className="flex h-14 w-full items-center">
