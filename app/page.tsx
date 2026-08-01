@@ -5,14 +5,16 @@ import FeatureCards from "@/components/home/FeatureCards";
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen overflow-x-hidden bg-black">
+    <main className="relative min-h-screen w-full overflow-x-hidden bg-black">
       <Background />
 
-      <div className="relative z-10">
+      {/* Kontainer Utama Dipaksa Rata Tengah Total */}
+      <div className="relative z-10 flex w-full flex-col items-center justify-center">
+        {/* Navbar Header */}
         <Navbar />
 
-        {/* Pembungkus sudah digabung, tidak akan ter-highlight 1910px lagi */}
-        <div className="mx-auto w-full max-w-[1320px] px-6">
+        {/* Area Konten Utama (Banner & Cards) */}
+        <div className="mx-auto flex w-full max-w-[1200px] flex-col items-center justify-center px-4 mt-4 md:px-6">
           <Slider />
           <FeatureCards />
         </div>

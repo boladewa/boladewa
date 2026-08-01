@@ -3,14 +3,16 @@ import SliderMobile from "./SliderMobile";
 
 export default function Slider() {
   return (
-    <>
-      <div className="hidden md:block">
+    <section className="relative w-full">
+      {/* Tampil di Desktop (Layar menengah ke atas) */}
+      <div className="hidden w-full md:block">
         <SliderDesktop />
       </div>
 
-      <div className="block md:hidden">
+      {/* Tampil di Mobile (Layar kecil) */}
+      <div className="block w-full md:hidden">
         <SliderMobile />
       </div>
-    </>
+    </section>
   );
 }

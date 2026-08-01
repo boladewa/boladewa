@@ -3,14 +3,14 @@ import NavbarMobile from "./NavbarMobile";
 
 export default function Navbar() {
   return (
-    <>
-      <div className="hidden md:block">
+    // Memastikan Navbar mekar 100% selebar layar monitor
+    <div className="w-full">
+      <div className="hidden md:block w-full">
         <NavbarDesktop />
       </div>
-
-      <div className="block md:hidden">
+      <div className="block md:hidden w-full">
         <NavbarMobile />
       </div>
-    </>
+    </div>
   );
 }
