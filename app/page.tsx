@@ -11,11 +11,10 @@ export default function Home() {
       <div className="relative z-10">
         <Navbar />
 
-        <div className="mx-auto flex w-full justify-center px-6">
-          <div className="w-full max-w-[1320px]">
-            <Slider />
-            <FeatureCards />
-          </div>
+        {/* Pembungkus sudah digabung, tidak akan ter-highlight 1910px lagi */}
+        <div className="mx-auto w-full max-w-[1320px] px-6">
+          <Slider />
+          <FeatureCards />
         </div>
       </div>
     </main>
