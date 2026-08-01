@@ -17,7 +17,7 @@ export default function NavbarDesktop() {
 
       {/* HEADER */}
       <div className="border-b border-yellow-500/20">
-        <div className="mx-auto flex h-[120px] w-full max-w-[1320px] items-center justify-between px-6">
+        <div className="mx-auto flex h-[120px] w-full max-w-[1600px] items-center justify-between px-8">
 
           {/* LOGO */}
           <Link href="/" className="flex items-center">
@@ -28,6 +28,7 @@ export default function NavbarDesktop() {
               height={90}
               priority
               className="
+                translate-y-4
                 h-auto
                 w-auto
                 drop-shadow-[0_0_15px_rgba(255,210,0,.35)]
@@ -37,7 +38,6 @@ export default function NavbarDesktop() {
               "
             />
           </Link>
-
 
           {/* BUTTON */}
           <div className="flex items-center gap-4">
@@ -71,7 +71,6 @@ export default function NavbarDesktop() {
             >
               LOGIN
             </a>
-
 
             <Link
               href="/register"
@@ -107,13 +106,13 @@ export default function NavbarDesktop() {
         </div>
       </div>
 
-
       {/* MENU */}
       <div className="border-b border-yellow-500/20 bg-[#151515]">
 
         <nav className="mx-auto flex h-16 w-full max-w-[1320px] items-center justify-center px-6">
 
-          <ul className="flex items-center gap-14 translate-x-12">
+          {/* Perubahan di sini: Menggunakan translate-x-32 agar geser lebih ke kanan */}
+          <ul className="flex items-center gap-12 translate-x-32">
 
             {menus.map((menu) => (
               <li key={menu.name} className="shrink-0">
