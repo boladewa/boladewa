@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const menus = [
   { name: "BERANDA", href: "/", external: false },
@@ -16,90 +17,120 @@ const menus = [
 
 export default function NavbarMobile() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 bg-black shadow-lg">
-      {/* Header */}
-      <div className="flex h-16 items-center justify-between border-b border-yellow-500/20 px-4">
+    <header className="sticky top-0 z-50 border-b border-amber-500/20 bg-black/95 backdrop-blur-md shadow-2xl">
+      {/* Header Bar */}
+      <div className="flex h-16 items-center justify-between px-4">
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <Image
             src="/logo-navbar.png"
             alt="Boladewa"
-            width={165}
-            height={45}
+            width={150}
+            height={40}
             priority
-            className="h-auto w-auto transition-transform duration-300 hover:scale-105"
+            className="h-auto w-auto transition-transform duration-300 active:scale-95"
           />
         </Link>
 
-        {/* Right Side */}
-        <div className="flex items-center gap-3">
-          {/* Login */}
+        {/* Right Side Buttons */}
+        <div className="flex items-center gap-2.5">
+          {/* Login Button */}
           <a
             href="https://www.amanpastianyam.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex h-10 w-[95px] items-center justify-center rounded-lg border border-yellow-500 text-sm font-bold text-yellow-400 transition-all duration-300 hover:bg-yellow-500 hover:text-black"
+            className="flex h-9 w-[85px] items-center justify-center rounded-lg border border-amber-500/60 bg-amber-500/10 text-xs font-bold text-amber-400 shadow-sm transition-all duration-300 hover:bg-amber-500 hover:text-black active:scale-95"
           >
             LOGIN
           </a>
 
-          {/* Register */}
+          {/* Register Button */}
           <Link
             href="/register"
-            className="flex h-10 w-[95px] items-center justify-center rounded-lg bg-gradient-to-r from-yellow-400 to-amber-500 text-sm font-bold text-black transition-all duration-300 hover:brightness-110"
+            className="flex h-9 w-[85px] items-center justify-center rounded-lg bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 text-xs font-extrabold text-black shadow-md shadow-amber-500/20 transition-all duration-300 hover:brightness-110 active:scale-95"
           >
             DAFTAR
           </Link>
 
-          {/* Menu */}
+          {/* Hamburger Menu Button */}
           <button
             onClick={() => setOpen(!open)}
-            className="flex h-10 w-10 items-center justify-center rounded-lg text-[30px] font-bold leading-none text-yellow-400 transition hover:bg-[#1b1b1b]"
+            className="flex h-9 w-9 items-center justify-center rounded-lg border border-amber-500/30 bg-neutral-900/80 text-amber-400 shadow-sm transition-all duration-300 hover:border-amber-500/60 hover:bg-neutral-800 active:scale-95"
             aria-label="Toggle Menu"
           >
-            {open ? "✕" : "☰"}
+            {open ? (
+              <svg className="h-5 w-5 fill-current" viewBox="0 0 24 24">
+                <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+              </svg>
+            ) : (
+              <svg className="h-5 w-5 fill-current" viewBox="0 0 24 24">
+                <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+              </svg>
+            )}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Drawer */}
       <div
-        className={`overflow-hidden bg-[#111111] transition-all duration-300 ${
-          open ? "max-h-[520px]" : "max-h-0"
+        className={`overflow-hidden border-t border-amber-500/10 bg-neutral-950/95 backdrop-blur-xl transition-all duration-300 ease-in-out ${
+          open ? "max-h-[600px] opacity-100 py-3" : "max-h-0 opacity-0 py-0"
         }`}
       >
-        <nav>
-          {menus.map((menu, index) =>
-            menu.external ? (
+        <nav className="flex flex-col gap-1.5 px-3">
+          {menus.map((menu) => {
+            // Deteksi menu mana yang sedang aktif
+            const isActive = !menu.external && pathname === menu.href;
+
+            const baseClasses = `group relative flex items-center justify-between rounded-xl px-4 py-3 text-xs font-bold tracking-wider transition-all duration-300 ${
+              isActive
+                ? "bg-gradient-to-r from-amber-500/20 via-yellow-500/10 to-transparent text-amber-400 border-l-4 border-amber-400 shadow-[0_0_12px_rgba(251,191,36,0.15)]"
+                : "border border-amber-500/10 bg-neutral-900/40 text-neutral-300 hover:border-amber-500/30 hover:bg-neutral-900 hover:text-amber-300"
+            }`;
+
+            return menu.external ? (
               <a
                 key={menu.name}
                 href={menu.href}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setOpen(false)}
-                className={`flex items-center justify-between border-b border-yellow-500/10 px-5 py-4 text-sm font-medium tracking-wide transition ${
-                  index === 0
-                    ? "bg-[#1a1a1a] text-yellow-400"
-                    : "text-gray-300 hover:bg-[#1a1a1a] hover:text-yellow-400"
-                }`}
+                className={baseClasses}
               >
                 <span>{menu.name}</span>
-                <span className="text-lg text-yellow-500">›</span>
+                <svg
+                  className="h-4 w-4 text-neutral-500 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-amber-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
               </a>
             ) : (
               <Link
                 key={menu.name}
                 href={menu.href}
                 onClick={() => setOpen(false)}
-                className="flex items-center justify-between border-b border-yellow-500/10 bg-[#1a1a1a] px-5 py-4 text-sm font-medium tracking-wide text-yellow-400"
+                className={baseClasses}
               >
                 <span>{menu.name}</span>
-                <span className="text-lg text-yellow-500">›</span>
+                <svg
+                  className={`h-4 w-4 transition-transform duration-300 ${
+                    isActive ? "text-amber-400 translate-x-1" : "text-neutral-500 group-hover:translate-x-1 group-hover:text-amber-400"
+                  }`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
               </Link>
-            )
-          )}
+            );
+          })}
         </nav>
       </div>
     </header>
