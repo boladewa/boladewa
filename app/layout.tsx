@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react"; // 1. Import Analytics dari Vercel
 import "./globals.css";
 
 const geistSans = Geist({
@@ -45,7 +46,11 @@ export default function RootLayout({
       data-scroll-behavior="smooth"
       className={`${geistSans.variable} ${geistMono.variable}`}
     >
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        {children}
+        {/* 2. Komponen Analytics diletakkan di dalam tag body */}
+        <Analytics />
+      </body>
     </html>
   );
 }
