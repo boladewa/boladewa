@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { Analytics } from "@vercel/analytics/react"; // 1. Import Analytics dari Vercel
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -16,7 +17,6 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "SELAMAT DATANG DI BOLADEWA88",
   description: "WEBSITE RESMI AGENT BOLADEWA88",
-  // Tambahkan openGraph agar preview WhatsApp & Medsos muncul sempurna
   openGraph: {
     title: "SELAMAT DATANG DI BOLADEWA88",
     description: "WEBSITE RESMI AGENT BOLADEWA88",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     siteName: "BOLADEWA88",
     images: [
       {
-        url: "https://boladewa.vercel.app/icon.png", // Menggunakan icon.png di folder app kamu
+        url: "https://boladewa.vercel.app/icon.png",
         width: 800,
         height: 600,
         alt: "BOLADEWA88 Logo",
@@ -48,8 +48,8 @@ export default function RootLayout({
     >
       <body className="antialiased">
         {children}
-        {/* 2. Komponen Analytics diletakkan di dalam tag body */}
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
