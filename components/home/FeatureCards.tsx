@@ -13,7 +13,7 @@ const cards = [
   },
   {
     icon: "💰",
-    title: "CASHBACK SPORT",
+    title: "BONUS NEW MEMBER",
     value: "10%",
     desc: "BONUS MINGGUAN",
   },
@@ -24,16 +24,16 @@ const cards = [
     desc: "ROLLINGAN MINGGUAN",
   },
   {
-    icon: "👨‍💻",
+    icon: "💰",
+    title: "CASHBACK SPORT ",
+    value: "5%",
+    desc: "BONUS MINGGUAN",
+  },
+  {
+    icon: "👨‍💻📢",
     title: "SUPPORT",
     value: "AKTIF",
     desc: "ONLINE SETIAP HARI",
-  },
-  {
-    icon: "📢",
-    title: "INFORMASI",
-    value: "UPDATE",
-    desc: "SELALU TERBARU",
   },
 ];
 

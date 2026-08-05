@@ -5,14 +5,20 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const menus = [
+interface MenuItem {
+  name: string;
+  href: string;
+  external: boolean;
+}
+
+const menus: MenuItem[] = [
   { name: "BERANDA", href: "/", external: false },
-  { name: "SPORTS", href: "https://www.amanpastianyam.com", external: true },
-  { name: "VIRTUAL SPORTS", href: "https://www.amanpastianyam.com", external: true },
-  { name: "LIVE CASINO", href: "https://www.amanpastianyam.com", external: true },
-  { name: "SLOT", href: "https://www.amanpastianyam.com", external: true },
-  { name: "TEMBAK IKAN", href: "https://www.amanpastianyam.com", external: true },
-  { name: "SABUNG AYAM", href: "https://www.amanpastianyam.com", external: true },
+  { name: "SPORTS", href: "https://www.terushebatunggul.com/en/euro", external: true },
+  { name: "VIRTUAL SPORTS", href: "https://www.terushebatunggul.com/virtualsports", external: true },
+  { name: "LIVE CASINO", href: "https://www.terushebatunggul.com/livecasino", external: true },
+  { name: "SLOT", href: "https://www.terushebatunggul.com/games", external: true },
+  { name: "TEMBAK IKAN", href: "https://www.terushebatunggul.com", external: true },
+  { name: "SABUNG AYAM", href: "https://www.terushebatunggul.com", external: true },
 ];
 
 export default function NavbarMobile() {
@@ -22,27 +28,27 @@ export default function NavbarMobile() {
   return (
     <header className="sticky top-0 z-50 border-b border-amber-500/20 bg-black/95 backdrop-blur-md shadow-2xl">
       {/* Header Bar */}
-      <div className="flex h-16 items-center justify-between px-4">
+      <div className="flex h-16 items-center justify-between px-3">
         {/* Logo */}
-        <Link href="/" className="flex items-center">
+        <Link href="/" className="flex items-center shrink-0">
           <Image
             src="/logo-navbar.png"
             alt="Boladewa"
-            width={150}
-            height={40}
+            width={120}
+            height={35}
             priority
             className="h-auto w-auto transition-transform duration-300 active:scale-95"
           />
         </Link>
 
         {/* Right Side Buttons */}
-        <div className="flex items-center gap-2.5">
+        <div className="flex items-center gap-1.5">
           {/* Login Button */}
           <a
-            href="https://www.amanpastianyam.com"
+            href="https://www.terushebatunggul.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex h-9 w-[85px] items-center justify-center rounded-lg border border-amber-500/60 bg-amber-500/10 text-xs font-bold text-amber-400 shadow-sm transition-all duration-300 hover:bg-amber-500 hover:text-black active:scale-95"
+            className="flex h-8 w-[62px] items-center justify-center rounded-lg bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 text-[10px] font-extrabold text-black shadow-md shadow-amber-500/20 transition-all duration-300 hover:brightness-110 active:scale-95"
           >
             LOGIN
           </a>
@@ -50,23 +56,33 @@ export default function NavbarMobile() {
           {/* Register Button */}
           <Link
             href="/register"
-            className="flex h-9 w-[85px] items-center justify-center rounded-lg bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 text-xs font-extrabold text-black shadow-md shadow-amber-500/20 transition-all duration-300 hover:brightness-110 active:scale-95"
+            className="flex h-8 w-[62px] items-center justify-center rounded-lg bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 text-[10px] font-extrabold text-black shadow-md shadow-amber-500/20 transition-all duration-300 hover:brightness-110 active:scale-95"
           >
             DAFTAR
           </Link>
 
+          {/* Hubungi Button */}
+          <a
+            href="https://wa.me/85577325308"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex h-8 w-[66px] items-center justify-center rounded-lg border border-amber-400 bg-black text-[10px] font-bold text-amber-300 transition-all duration-300 hover:bg-amber-400 hover:text-black active:scale-95"
+          >
+            HUBUNGI
+          </a>
+
           {/* Hamburger Menu Button */}
           <button
             onClick={() => setOpen(!open)}
-            className="flex h-9 w-9 items-center justify-center rounded-lg border border-amber-500/30 bg-neutral-900/80 text-amber-400 shadow-sm transition-all duration-300 hover:border-amber-500/60 hover:bg-neutral-800 active:scale-95"
+            className="flex h-8 w-8 items-center justify-center rounded-lg border border-amber-500/30 bg-neutral-900/80 text-amber-400 shadow-sm transition-all duration-300 hover:border-amber-500/60 hover:bg-neutral-800 active:scale-95"
             aria-label="Toggle Menu"
           >
             {open ? (
-              <svg className="h-5 w-5 fill-current" viewBox="0 0 24 24">
+              <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
                 <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
               </svg>
             ) : (
-              <svg className="h-5 w-5 fill-current" viewBox="0 0 24 24">
+              <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
                 <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
               </svg>
             )}
@@ -82,7 +98,6 @@ export default function NavbarMobile() {
       >
         <nav className="flex flex-col gap-1.5 px-3">
           {menus.map((menu) => {
-            // Deteksi menu mana yang sedang aktif
             const isActive = !menu.external && pathname === menu.href;
 
             const baseClasses = `group relative flex items-center justify-between rounded-xl px-4 py-3 text-xs font-bold tracking-wider transition-all duration-300 ${

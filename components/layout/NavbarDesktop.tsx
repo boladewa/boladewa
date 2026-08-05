@@ -24,8 +24,8 @@ export default function NavbarDesktop() {
     <header className="sticky top-0 z-50 w-full bg-black shadow-xl">
       {/* 1. TOP BAR */}
       <div className="w-full border-b border-yellow-500/20">
-        <div className="flex h-[100px] w-full items-center justify-between px-6 lg:px-12">
-          {/* Logo diarahkan ke link eksternal */}
+        <div className="relative flex h-[100px] w-full items-center px-6 lg:px-12">
+          {/* Logo di Kiri */}
           <a
             href="https://www.terushebatunggul.com/"
             target="_blank"
@@ -42,22 +42,35 @@ export default function NavbarDesktop() {
             />
           </a>
 
-          <div className="flex items-center gap-4">
+          {/* Grup Tombol di Kanan */}
+          <div className="absolute right-6 lg:right-12 flex items-center gap-3">
+            {/* Tombol LOGIN (Kuning Emas) */}
             <a
               href="https://www.terushebatunggul.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex h-11 min-w-[130px] items-center justify-center rounded-xl border border-yellow-500 bg-black px-6 text-sm font-bold uppercase text-yellow-400 transition-all duration-300 hover:bg-yellow-500 hover:text-black hover:shadow-lg hover:shadow-yellow-500/40"
+              className="flex h-11 min-w-[120px] items-center justify-center rounded-xl bg-gradient-to-r from-yellow-400 via-yellow-300 to-amber-500 px-5 text-sm font-extrabold uppercase text-black shadow-lg shadow-yellow-500/20 transition-all duration-300 hover:scale-105 hover:shadow-yellow-500/50"
             >
               LOGIN
             </a>
 
+            {/* Tombol DAFTAR (Kuning Emas) */}
             <Link
               href="/register"
-              className="flex h-11 min-w-[140px] items-center justify-center rounded-xl bg-gradient-to-r from-yellow-400 via-yellow-300 to-amber-500 px-6 text-sm font-extrabold uppercase text-black shadow-lg shadow-yellow-500/20 transition-all duration-300 hover:scale-105 hover:shadow-yellow-500/50"
+              className="flex h-11 min-w-[125px] items-center justify-center rounded-xl bg-gradient-to-r from-yellow-400 via-yellow-300 to-amber-500 px-5 text-sm font-extrabold uppercase text-black shadow-lg shadow-yellow-500/20 transition-all duration-300 hover:scale-105 hover:shadow-yellow-500/50"
             >
               DAFTAR
             </Link>
+
+            {/* Tombol HUBUNGI (Hitam dengan border & teks kuning) */}
+            <a
+              href="https://wa.me/85577325308"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex h-11 min-w-[120px] items-center justify-center rounded-xl border border-yellow-400 bg-black px-5 text-sm font-bold uppercase text-yellow-300 transition-all duration-300 hover:bg-yellow-400 hover:text-black hover:scale-105"
+            >
+              HUBUNGI
+            </a>
           </div>
         </div>
       </div>

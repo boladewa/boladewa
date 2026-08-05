@@ -37,7 +37,7 @@ export default function Hero() {
         🛡️ AGENT RESMI BOLADEWA • AKSES RESMI TERPERCAYA
       </div>
 
-      {/* Tombol */}
+      {/* Tombol (Urutan disamakan: LOGIN -> DAFTAR -> HUBUNGI) */}
       <div className="mt-8 flex flex-wrap justify-center gap-3 md:gap-5">
 
         <a
