@@ -15,19 +15,35 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "SELAMAT DATANG DI BOLADEWA88",
-  description: "WEBSITE RESMI AGENT BOLADEWA88",
+  // Anda bisa sesuaikan judulnya di sini agar selaras
+  title: "BOLADEWA RESMI | Link Alternatif Terpercaya", 
+  
+  // Masukkan teks deskripsi yang Anda inginkan di sini:
+  description: "Lewat BOLADEWA RESMI, nikmati link alternatif terpercaya yang menjamin kelancaran akses Anda. Didukung lisensi agen bola sah dan infrastruktur server terbaru, taruhan jadi jauh lebih aman, stabil, dan transparan",
+  
+  alternates: {
+    canonical: "https://www.boladewa.online",
+    languages: {
+      "id-ID": "https://boladewa.online",
+    },
+  },
   openGraph: {
-    title: "SELAMAT DATANG DI BOLADEWA88",
-    description: "WEBSITE RESMI AGENT BOLADEWA88",
-    url: "https://boladewa.vercel.app/",
+    title: "BOLADEWA RESMI | Link Alternatif Terpercaya",
+    description: "Lewat BOLADEWA RESMI, nikmati link alternatif terpercaya yang menjamin kelancaran akses Anda. Didukung lisensi agen bola sah dan infrastruktur server terbaru, taruhan jadi jauh lebih aman, stabil, dan transparan",
+    url: "https://www.boladewa.online/",
     siteName: "BOLADEWA88",
     images: [
       {
-        url: "https://boladewa.vercel.app/icon.png",
+        url: "https://www.boladewa.online/icon.png",
         width: 800,
         height: 600,
         alt: "BOLADEWA88 Logo",
+      },
+      {
+        url: "https://boladewa.online/icon.png",
+        width: 800,
+        height: 600,
+        alt: "BOLADEWA88 Logo Tanpa WWW",
       },
     ],
     locale: "id_ID",
