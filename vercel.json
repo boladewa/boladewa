@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "destination": "https://boladewa.online/$1",
+      "permanent": true
+    }
+  ]
+}
