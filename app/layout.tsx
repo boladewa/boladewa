@@ -15,12 +15,17 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  // Anda bisa sesuaikan judulnya di sini agar selaras
-  title: "BOLADEWA RESMI | Link Alternatif Terpercaya", 
+  title: "BOLADEWA RESMI | Link Alternatif Terpercaya",
+  description:
+    "Lewat BOLADEWA RESMI, nikmati link alternatif terpercaya yang menjamin kelancaran akses Anda. Didukung lisensi agen bola sah dan infrastruktur server terbaru, taruhan jadi jauh lebih aman, stabil, dan transparan",
   
-  // Masukkan teks deskripsi yang Anda inginkan di sini:
-  description: "Lewat BOLADEWA RESMI, nikmati link alternatif terpercaya yang menjamin kelancaran akses Anda. Didukung lisensi agen bola sah dan infrastruktur server terbaru, taruhan jadi jauh lebih aman, stabil, dan transparan",
-  
+  // Konfigurasi ikon / favicon agar langsung terbaca browser
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
+  },
+
   alternates: {
     canonical: "https://www.boladewa.online",
     languages: {
@@ -29,7 +34,8 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "BOLADEWA RESMI | Link Alternatif Terpercaya",
-    description: "Lewat BOLADEWA RESMI, nikmati link alternatif terpercaya yang menjamin kelancaran akses Anda. Didukung lisensi agen bola sah dan infrastruktur server terbaru, taruhan jadi jauh lebih aman, stabil, dan transparan",
+    description:
+      "Lewat BOLADEWA RESMI, nikmati link alternatif terpercaya yang menjamin kelancaran akses Anda. Didukung lisensi agen bola sah dan infrastruktur server terbaru, taruhan jadi jauh lebih aman, stabil, dan transparan",
     url: "https://www.boladewa.online/",
     siteName: "BOLADEWA88",
     images: [
